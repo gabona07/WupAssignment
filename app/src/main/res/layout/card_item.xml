@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/cardImage"
+        android:layout_width="300dp"
+        android:layout_height="250dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAvailable"
+        android:layout_margin="@dimen/margin_10dp"
+        android:textSize="@dimen/font_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cardImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/available"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animationResolution = "5000"
+        app:layout_constraintTop_toBottomOf="@id/tvAvailable"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
+
+    <TextView
+        android:id="@+id/tvCurrentBalance"
+        android:textSize="@dimen/font_size"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/current_balance"/>
+
+    <TextView
+        android:id="@+id/tvActualCurrentBalance"
+        android:textSize="@dimen/font_size"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/progressBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/tvMinPayment"
+        android:textSize="@dimen/font_size"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentBalance"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/min_payment"/>
+
+    <TextView
+        android:id="@+id/tvActualMinPayment"
+        android:textSize="@dimen/font_size"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentBalance"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/tvDueDate"
+        android:textSize="@dimen/font_size"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvMinPayment"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/due_date"/>
+
+    <TextView
+        android:id="@+id/tvActualDueDate"
+        android:textSize="@dimen/font_size"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tvMinPayment"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text=""/>
+
+    <Button
+        android:id="@+id/details"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/details"
+        android:textColor="@color/black"
+        style="?attr/materialButtonOutlinedStyle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

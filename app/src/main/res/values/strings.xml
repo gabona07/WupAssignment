@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">WupAssignment</string>
+    <string name="available">Available:</string>
+    <string name="current_balance">Current Balance:</string>
+    <string name="due_date">Due Date:</string>
+    <string name="details">Details</string>
+    <string name="min_payment">Min. Payment</string>
 </resources>
