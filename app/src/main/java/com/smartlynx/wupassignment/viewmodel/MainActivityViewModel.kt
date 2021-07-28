@@ -3,7 +3,7 @@ package com.smartlynx.wupassignment.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.smartlynx.wupassignment.model.CardList
+import com.smartlynx.wupassignment.model.CardInfo
 import com.smartlynx.wupassignment.network.ApiService
 import com.smartlynx.wupassignment.network.RetrofitInstance
 import kotlinx.coroutines.Dispatchers
@@ -11,9 +11,9 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel: ViewModel() {
 
-    var cardsLiveData: MutableLiveData<CardList> = MutableLiveData()
+    var cardsLiveData: MutableLiveData<ArrayList<CardInfo>> = MutableLiveData()
 
-    fun getCardsObserver(): MutableLiveData<CardList> {
+    fun getCardsObserver(): MutableLiveData<ArrayList<CardInfo>> {
         return cardsLiveData
     }
 

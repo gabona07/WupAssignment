@@ -1,6 +1,5 @@
 package com.smartlynx.wupassignment.model
 
-data class CardList(val cardList: ArrayList<CardInfo>)
 data class CardInfo(
     val cardId: String,
     val issuer: String,
