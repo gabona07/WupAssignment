@@ -2,6 +2,7 @@ package com.smartlynx.wupassignment.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ProgressBar
 import android.widget.TextView
 import com.smartlynx.wupassignment.R
 import com.smartlynx.wupassignment.model.CardInfo
@@ -59,6 +60,10 @@ class DetailsActivity : AppCompatActivity() {
 
         val actualCardHolderNameSupplementaryTv = findViewById<TextView>(R.id.actualCardHolderNameSupplementaryTv)
         actualCardHolderNameSupplementaryTv.text = cardInfo.cardHolderName
+
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+        progressBar.max = cardInfo.availableBalance + cardInfo.currentBalance
+        progressBar.progress = cardInfo.availableBalance
 
     }
 }
