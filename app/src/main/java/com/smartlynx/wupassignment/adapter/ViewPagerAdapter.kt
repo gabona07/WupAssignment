@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide
 import com.smartlynx.wupassignment.view.DetailsActivity
 import com.smartlynx.wupassignment.R
 import com.smartlynx.wupassignment.model.CardInfo
+import java.text.DecimalFormat
 
 class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolder>() {
 
@@ -52,14 +53,6 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
             val drawableAlert = Drawable.createFromStream(inputStreamAlert, null)
             Glide.with(alertIv).load(drawableAlert).into(alertIv)
 
-
-            if (card.availableBalance == 0) {
-                alertIv.visibility = View.VISIBLE
-            } else {
-                alertIv.visibility = View.GONE
-            }
-
-
             // Set progressbar status
             val fullBalance = card.availableBalance + card.currentBalance
             progressbar.progress = 0
@@ -67,6 +60,13 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
             val progressAnimator = ObjectAnimator.ofInt(progressbar, "progress", progressbar.progress, card.availableBalance)
             progressAnimator.duration = 3000
             progressAnimator.start()
+
+            // Show alert if the available balance is zero
+            if (card.availableBalance == 0) {
+                alertIv.visibility = View.VISIBLE
+            } else {
+                alertIv.visibility = View.GONE
+            }
 
             // Set details click listener
             detailsButton.setOnClickListener {
@@ -76,10 +76,10 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
                 intent.putExtras(bundle)
                 itemView.context.startActivity(intent)
             }
-
-            available.text = card.availableBalance.toString()
-            currentBalance.text = card.currentBalance.toString()
-            minPayment.text = card.minPayment.toString()
+            val dec = DecimalFormat("#,###.##")
+            available.text = dec.format(card.availableBalance).plus(" USD")
+            currentBalance.text = dec.format(card.currentBalance).plus(" USD")
+            minPayment.text = dec.format(card.minPayment).plus(" USD")
             dueDate.text = card.dueDate
         }
     }

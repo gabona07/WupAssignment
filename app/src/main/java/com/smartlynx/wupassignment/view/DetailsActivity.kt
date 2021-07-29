@@ -7,6 +7,7 @@ import android.widget.TextView
 import com.smartlynx.wupassignment.R
 import com.smartlynx.wupassignment.databinding.ActivityDetailsBinding
 import com.smartlynx.wupassignment.model.CardInfo
+import java.text.DecimalFormat
 
 class DetailsActivity : AppCompatActivity() {
 
@@ -30,13 +31,14 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun fillDetails(cardInfo: CardInfo) {
-        binding.actualCurrentBalanceTv.text = cardInfo.currentBalance.toString()
-        binding.actualAvailableTv.text = cardInfo.availableBalance.toString()
-        binding.actualReservationsTv.text = cardInfo.reservations.toString()
-        binding.actualBalanceCarriedOverTv.text = cardInfo.balanceCarriedOverFromLastStatement.toString()
-        binding.actualTotalSpendingTv.text = cardInfo.spendingsSinceLastStatement.toString()
+        val dec = DecimalFormat("#,###.##")
+        binding.actualCurrentBalanceTv.text = dec.format(cardInfo.currentBalance).plus(" USD")
+        binding.actualAvailableTv.text = dec.format(cardInfo.availableBalance).plus(" USD")
+        binding.actualReservationsTv.text = dec.format(cardInfo.reservations).plus(" USD")
+        binding.actualBalanceCarriedOverTv.text = dec.format(cardInfo.balanceCarriedOverFromLastStatement).plus(" USD")
+        binding.actualTotalSpendingTv.text = dec.format(cardInfo.spendingsSinceLastStatement).plus(" USD")
         binding.actualLatestPaymentTv.text = cardInfo.yourLastRepayment
-        binding.actualCardAccountLimitTv.text = cardInfo.accountDetails.accountLimit.toString()
+        binding.actualCardAccountLimitTv.text = dec.format(cardInfo.accountDetails.accountLimit).plus(" USD")
         binding.actualCardAccountNumberTv.text = cardInfo.accountDetails.accountNumber
         binding.actualCardNumberTv.text = cardInfo.cardNumber
         binding.actualCardHolderNameTv.text = cardInfo.cardHolderName
