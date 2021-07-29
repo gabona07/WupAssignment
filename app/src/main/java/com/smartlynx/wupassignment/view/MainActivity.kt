@@ -8,24 +8,28 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.smartlynx.wupassignment.R
 import com.smartlynx.wupassignment.adapter.ViewPagerAdapter
+import com.smartlynx.wupassignment.databinding.ActivityDetailsBinding
+import com.smartlynx.wupassignment.databinding.ActivityMainBinding
 import com.smartlynx.wupassignment.model.CardInfo
 import com.smartlynx.wupassignment.viewmodel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var viewPagerAdapter: ViewPagerAdapter
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
         initialiseViewPagerAdapter()
         initialiseViewModel()
     }
 
     private fun initialiseViewPagerAdapter() {
-        val viewPager = findViewById<ViewPager2>(R.id.viewPager)
         viewPagerAdapter = ViewPagerAdapter()
-        viewPager.adapter = viewPagerAdapter
+        binding.viewPager.adapter = viewPagerAdapter
     }
 
     private fun initialiseViewModel() {
