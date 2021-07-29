@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/currentBalanceTv"
-            android:layout_margin="@dimen/margin_10dp"
+            android:layout_margin="@dimen/margin_20dp"
             android:textSize="@dimen/font_size"
             android:textColor="@color/blue"
             android:layout_width="wrap_content"
@@ -25,7 +25,7 @@
 
         <TextView
             android:id="@+id/availableTv"
-            android:layout_margin="@dimen/margin_10dp"
+            android:layout_margin="@dimen/margin_20dp"
             android:textColor="@color/blue"
             android:textSize="@dimen/font_size"
             android:layout_width="wrap_content"
@@ -36,7 +36,7 @@
 
         <TextView
             android:id="@+id/actualCurrentBalanceTv"
-            android:layout_margin="@dimen/margin_10dp"
+            android:layout_margin="@dimen/margin_20dp"
             android:textSize="@dimen/font_size"
             android:textColor="@color/orange"
             android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
 
         <TextView
             android:id="@+id/actualAvailableTv"
-            android:layout_margin="@dimen/margin_10dp"
+            android:layout_margin="@dimen/margin_20dp"
             android:textColor="@color/blue"
             android:textSize="@dimen/font_size"
             android:layout_width="wrap_content"
@@ -59,7 +59,7 @@
 
             <TextView
                 android:id="@+id/reservationsTv"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textSize="@dimen/normal_font_size"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,8 +71,7 @@
             <TextView
                 android:id="@+id/actualReservationsTv"
                 android:textSize="@dimen/normal_font_size"
-                android:textColor="@color/black"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/actualAvailableTv"
@@ -83,7 +82,7 @@
                 android:id="@+id/balanceOverviewTv"
                 android:textSize="@dimen/font_size"
                 android:textColor="@color/grey"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/actualReservationsTv"
@@ -93,7 +92,7 @@
             <TextView
                 android:id="@+id/balanceCarriedOverTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -104,7 +103,7 @@
             <TextView
                 android:id="@+id/actualBalanceCarriedOverTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/balanceOverviewTv"
@@ -114,7 +113,7 @@
             <TextView
                 android:id="@+id/totalSpendingTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -125,7 +124,7 @@
             <TextView
                 android:id="@+id/actualTotalSpendingTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/actualBalanceCarriedOverTv"
@@ -135,7 +134,7 @@
             <TextView
                 android:id="@+id/latestPaymentTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,7 +145,7 @@
             <TextView
                 android:id="@+id/actualLatestPaymentTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/totalSpendingTv"
@@ -156,7 +155,7 @@
             <TextView
                 android:id="@+id/accountDetailsTv"
                 android:textSize="@dimen/font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textColor="@color/grey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -167,7 +166,7 @@
             <TextView
                 android:id="@+id/cardAccountLimitTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -178,7 +177,7 @@
             <TextView
                 android:id="@+id/actualCardAccountLimitTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/accountDetailsTv"
@@ -188,7 +187,7 @@
             <TextView
                 android:id="@+id/cardAccountNumberTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textColor="@color/blue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -199,7 +198,7 @@
             <TextView
                 android:id="@+id/actualCardAccountNumberTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/cardAccountLimitTv"
@@ -209,7 +208,7 @@
             <TextView
                 android:id="@+id/mainCardTv"
                 android:textSize="@dimen/font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:textColor="@color/grey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -220,7 +219,7 @@
             <TextView
                 android:id="@+id/cardNumberTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
@@ -231,7 +230,7 @@
             <TextView
                 android:id="@+id/actualCardNumberTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/mainCardTv"
@@ -241,7 +240,7 @@
             <TextView
                 android:id="@+id/cardHolderNameTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
@@ -252,7 +251,7 @@
             <TextView
                 android:id="@+id/actualCardHolderNameTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/actualCardNumberTv"
@@ -262,7 +261,7 @@
             <TextView
                 android:id="@+id/supplementaryCardTv"
                 android:textSize="@dimen/font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/grey"
@@ -273,7 +272,7 @@
             <TextView
                 android:id="@+id/cardNumberSupplementaryTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
@@ -284,7 +283,7 @@
             <TextView
                 android:id="@+id/actualCardNumberSupplementaryTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/supplementaryCardTv"
@@ -294,7 +293,7 @@
             <TextView
                 android:id="@+id/cardHolderNameSupplementaryTv"
                 android:textSize="@dimen/normal_font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/blue"
@@ -304,8 +303,8 @@
 
             <TextView
                 android:id="@+id/actualCardHolderNameSupplementaryTv"
-                android:textSize="@dimen/font_size"
-                android:layout_margin="@dimen/margin_10dp"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@+id/cardNumberSupplementaryTv"
