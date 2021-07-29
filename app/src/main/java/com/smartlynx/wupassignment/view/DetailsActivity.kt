@@ -1,8 +1,9 @@
-package com.smartlynx.wupassignment
+package com.smartlynx.wupassignment.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import com.smartlynx.wupassignment.R
 import com.smartlynx.wupassignment.model.CardInfo
 
 class DetailsActivity : AppCompatActivity() {

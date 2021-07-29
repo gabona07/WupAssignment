@@ -1,5 +1,6 @@
 package com.smartlynx.wupassignment.adapter
 
+import android.animation.ObjectAnimator
 import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
@@ -14,7 +15,7 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.smartlynx.wupassignment.DetailsActivity
+import com.smartlynx.wupassignment.view.DetailsActivity
 import com.smartlynx.wupassignment.R
 import com.smartlynx.wupassignment.model.CardInfo
 
@@ -28,32 +29,44 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
     }
 
     inner class ViewPagerViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        private val imageView: ImageView = view.findViewById(R.id.cardImage)
+        private val cardImage: ImageView = view.findViewById(R.id.cardImage)
         private val available: TextView = view.findViewById(R.id.tvActualAvailable)
         private val currentBalance: TextView = view.findViewById(R.id.tvActualCurrentBalance)
         private val minPayment: TextView = view.findViewById(R.id.tvActualMinPayment)
         private val dueDate: TextView = view.findViewById(R.id.tvActualDueDate)
         private val progressbar: ProgressBar = view.findViewById(R.id.progressBar)
         private val detailsButton: Button = view.findViewById(R.id.details)
+        private val alertIv: ImageView = view.findViewById(R.id.alertIv)
 
 
         @RequiresApi(Build.VERSION_CODES.N)
         fun bind(card: CardInfo) {
-            // Load image
+            // Load image into the image views
             val currentImage = card.cardImage
             val assets = itemView.context.assets
-            val inputStream = assets.open("card_images/$currentImage.png")
-            val drawable = Drawable.createFromStream(inputStream, null)
-            Glide.with(imageView).load(drawable).into(imageView)
+            val inputStreamCardImage = assets.open("card_images/$currentImage.png")
+            val drawableCardImage = Drawable.createFromStream(inputStreamCardImage, null)
+            Glide.with(cardImage).load(drawableCardImage).into(cardImage)
+
+            val inputStreamAlert = assets.open("icons/ic_alert.png")
+            val drawableAlert = Drawable.createFromStream(inputStreamAlert, null)
+            Glide.with(alertIv).load(drawableAlert).into(alertIv)
+
+
+            if (card.availableBalance == 0) {
+                alertIv.visibility = View.VISIBLE
+            } else {
+                alertIv.visibility = View.GONE
+            }
+
 
             // Set progressbar status
-            val full = card.availableBalance + card.currentBalance
-            if (card.availableBalance != 0) {
-                val availableBalancePercent = full / card.availableBalance
-                progressbar.setProgress(availableBalancePercent, true)
-            } else {
-                progressbar.setProgress(100, true)
-            }
+            val fullBalance = card.availableBalance + card.currentBalance
+            progressbar.progress = 0
+            progressbar.max = fullBalance
+            val progressAnimator = ObjectAnimator.ofInt(progressbar, "progress", progressbar.progress, card.availableBalance)
+            progressAnimator.duration = 3000
+            progressAnimator.start()
 
             // Set details click listener
             detailsButton.setOnClickListener {
