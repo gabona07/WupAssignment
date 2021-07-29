@@ -1,5 +1,7 @@
 package com.smartlynx.wupassignment.model
 
+import java.io.Serializable
+
 data class CardInfo(
     val cardId: String,
     val issuer: String,
@@ -20,8 +22,8 @@ data class CardInfo(
     val status: String,
     val cardImage: String,
     val accountDetails: AccountDetails
-    )
+    ): Serializable
 
-data class AccountDetails(val accountLimit: Int, val accountNumber: String)
+data class AccountDetails(val accountLimit: Int, val accountNumber: String): Serializable
 
 

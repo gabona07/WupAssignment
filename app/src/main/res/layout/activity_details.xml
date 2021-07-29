@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/currentBalanceTv"
+            android:layout_margin="@dimen/margin_10dp"
+            android:textSize="@dimen/font_size"
+            android:textColor="@color/blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/current_balance"/>
+
+        <TextView
+            android:id="@+id/availableTv"
+            android:layout_margin="@dimen/margin_10dp"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/font_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/available"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/actualCurrentBalanceTv"
+            android:layout_margin="@dimen/margin_10dp"
+            android:textSize="@dimen/font_size"
+            android:textColor="@color/orange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/currentBalanceTv"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text=""/>
+
+        <TextView
+            android:id="@+id/actualAvailableTv"
+            android:layout_margin="@dimen/margin_10dp"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/font_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintTop_toBottomOf="@+id/currentBalanceTv"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/reservationsTv"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                app:layout_constraintTop_toBottomOf="@+id/actualAvailableTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/reservations_pending"/>
+
+            <TextView
+                android:id="@+id/actualReservationsTv"
+                android:textSize="@dimen/normal_font_size"
+                android:textColor="@color/black"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/actualAvailableTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/balanceOverviewTv"
+                android:textSize="@dimen/font_size"
+                android:textColor="@color/grey"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/actualReservationsTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/balance_overview"/>
+
+            <TextView
+                android:id="@+id/balanceCarriedOverTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textColor="@color/blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/balanceOverviewTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/balance_carried_over_from_last_statement"/>
+
+            <TextView
+                android:id="@+id/actualBalanceCarriedOverTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/balanceOverviewTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/totalSpendingTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textColor="@color/blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/balanceCarriedOverTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/total_spendings_since_last_payment"/>
+
+            <TextView
+                android:id="@+id/actualTotalSpendingTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/actualBalanceCarriedOverTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/latestPaymentTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textColor="@color/blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/totalSpendingTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/your_latest_re_payment"/>
+
+            <TextView
+                android:id="@+id/actualLatestPaymentTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/totalSpendingTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/accountDetailsTv"
+                android:textSize="@dimen/font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textColor="@color/grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/latestPaymentTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/account_details"/>
+
+            <TextView
+                android:id="@+id/cardAccountLimitTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textColor="@color/blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/accountDetailsTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/card_account_limit"/>
+
+            <TextView
+                android:id="@+id/actualCardAccountLimitTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/accountDetailsTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/cardAccountNumberTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textColor="@color/blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cardAccountLimitTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/card_account_number"/>
+
+            <TextView
+                android:id="@+id/actualCardAccountNumberTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cardAccountLimitTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/mainCardTv"
+                android:textSize="@dimen/font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:textColor="@color/grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cardAccountNumberTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/main_card"/>
+
+            <TextView
+                android:id="@+id/cardNumberTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                app:layout_constraintTop_toBottomOf="@+id/mainCardTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/card_number"/>
+
+            <TextView
+                android:id="@+id/actualCardNumberTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/mainCardTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/cardHolderNameTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                app:layout_constraintTop_toBottomOf="@+id/actualCardNumberTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/card_holder_name"/>
+
+            <TextView
+                android:id="@+id/actualCardHolderNameTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/actualCardNumberTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/supplementaryCardTv"
+                android:textSize="@dimen/font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey"
+                app:layout_constraintTop_toBottomOf="@+id/cardHolderNameTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/supplementary_card"/>
+
+            <TextView
+                android:id="@+id/cardNumberSupplementaryTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                app:layout_constraintTop_toBottomOf="@+id/supplementaryCardTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/card_number"/>
+
+            <TextView
+                android:id="@+id/actualCardNumberSupplementaryTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/supplementaryCardTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+            <TextView
+                android:id="@+id/cardHolderNameSupplementaryTv"
+                android:textSize="@dimen/normal_font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                app:layout_constraintTop_toBottomOf="@+id/cardNumberSupplementaryTv"
+                app:layout_constraintStart_toStartOf="parent"
+                android:text="@string/card_holder_name"/>
+
+            <TextView
+                android:id="@+id/actualCardHolderNameSupplementaryTv"
+                android:textSize="@dimen/font_size"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/cardNumberSupplementaryTv"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text=""/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

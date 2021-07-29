@@ -11,7 +11,7 @@ import com.smartlynx.wupassignment.adapter.ViewPagerAdapter
 import com.smartlynx.wupassignment.model.CardInfo
 import com.smartlynx.wupassignment.viewmodel.MainActivityViewModel
 
-class MainActivity : AppCompatActivity(), ViewPagerAdapter.AdapterCallback {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var viewPagerAdapter: ViewPagerAdapter
 
@@ -32,15 +32,11 @@ class MainActivity : AppCompatActivity(), ViewPagerAdapter.AdapterCallback {
         val viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getCardsObserver().observe(this, Observer<ArrayList<CardInfo>> {
             if (it != null) {
-                viewPagerAdapter.setCardsData(it, this)
+                viewPagerAdapter.setCardsData(it)
             } else {
                 Toast.makeText(this, "Could not load card data.", Toast.LENGTH_SHORT).show()
             }
         })
         viewModel.makeApiCall()
-    }
-
-    override fun changeTitle(title: String) {
-        supportActionBar!!.title = title
     }
 }
