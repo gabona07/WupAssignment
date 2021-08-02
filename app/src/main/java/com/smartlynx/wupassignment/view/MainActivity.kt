@@ -15,32 +15,19 @@ import com.smartlynx.wupassignment.viewmodel.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewPagerAdapter: ViewPagerAdapter
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         val view = binding.root
+        val mainFragment = MainFragment()
+
         setContentView(view)
-        initialiseViewPagerAdapter()
-        initialiseViewModel()
-    }
-
-    private fun initialiseViewPagerAdapter() {
-        viewPagerAdapter = ViewPagerAdapter()
-        binding.viewPager.adapter = viewPagerAdapter
-    }
-
-    private fun initialiseViewModel() {
-        val viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        viewModel.getCardsObserver().observe(this, Observer<ArrayList<CardInfo>> {
-            if (it != null) {
-                viewPagerAdapter.setCardsData(it)
-            } else {
-                Toast.makeText(this, "Could not load card data.", Toast.LENGTH_SHORT).show()
-            }
-        })
-        viewModel.makeApiCall()
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frameLayout, mainFragment).commit()
+        }
     }
 }
