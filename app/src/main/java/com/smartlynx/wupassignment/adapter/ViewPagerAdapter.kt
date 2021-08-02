@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.smartlynx.wupassignment.view.DetailsActivity
 import com.smartlynx.wupassignment.R
+import com.smartlynx.wupassignment.databinding.ActivityMainBinding
+import com.smartlynx.wupassignment.databinding.CardItemBinding
 import com.smartlynx.wupassignment.model.CardInfo
 import java.text.DecimalFormat
 
@@ -29,16 +31,7 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
         notifyDataSetChanged()
     }
 
-    inner class ViewPagerViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        private val cardImage: ImageView = view.findViewById(R.id.cardImage)
-        private val available: TextView = view.findViewById(R.id.tvActualAvailable)
-        private val currentBalance: TextView = view.findViewById(R.id.tvActualCurrentBalance)
-        private val minPayment: TextView = view.findViewById(R.id.tvActualMinPayment)
-        private val dueDate: TextView = view.findViewById(R.id.tvActualDueDate)
-        private val progressbar: ProgressBar = view.findViewById(R.id.progressBar)
-        private val detailsButton: Button = view.findViewById(R.id.details)
-        private val alertIv: ImageView = view.findViewById(R.id.alertIv)
-
+    inner class ViewPagerViewHolder(val binding: CardItemBinding): RecyclerView.ViewHolder(binding.root) {
 
         @RequiresApi(Build.VERSION_CODES.N)
         fun bind(card: CardInfo) {
@@ -47,29 +40,29 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
             val assets = itemView.context.assets
             val inputStreamCardImage = assets.open("card_images/$currentImage.png")
             val drawableCardImage = Drawable.createFromStream(inputStreamCardImage, null)
-            Glide.with(cardImage).load(drawableCardImage).into(cardImage)
+            Glide.with(binding.cardImage).load(drawableCardImage).into(binding.cardImage)
 
             val inputStreamAlert = assets.open("icons/ic_alert.png")
             val drawableAlert = Drawable.createFromStream(inputStreamAlert, null)
-            Glide.with(alertIv).load(drawableAlert).into(alertIv)
+            Glide.with(binding.alertIv).load(drawableAlert).into(binding.alertIv)
 
             // Set progressbar status
             val fullBalance = card.availableBalance + card.currentBalance
-            progressbar.progress = 0
-            progressbar.max = fullBalance
-            val progressAnimator = ObjectAnimator.ofInt(progressbar, "progress", progressbar.progress, card.availableBalance)
+            binding.progressBar.progress = 0
+            binding.progressBar.max = fullBalance
+            val progressAnimator = ObjectAnimator.ofInt(binding.progressBar, "progress", binding.progressBar.progress, card.availableBalance)
             progressAnimator.duration = 3000
             progressAnimator.start()
 
             // Show alert if the available balance is zero
             if (card.availableBalance == 0) {
-                alertIv.visibility = View.VISIBLE
+                binding.alertIv.visibility = View.VISIBLE
             } else {
-                alertIv.visibility = View.GONE
+                binding.alertIv.visibility = View.GONE
             }
 
             // Set details click listener
-            detailsButton.setOnClickListener {
+            binding.details.setOnClickListener {
                 val intent = Intent(itemView.context, DetailsActivity::class.java)
                 val bundle = Bundle()
                 bundle.putSerializable("card", card)
@@ -77,21 +70,25 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
                 itemView.context.startActivity(intent)
             }
             val dec = DecimalFormat("#,###.##")
-            available.text = dec.format(card.availableBalance).plus(" USD")
-            currentBalance.text = dec.format(card.currentBalance).plus(" USD")
-            minPayment.text = dec.format(card.minPayment).plus(" USD")
-            dueDate.text = card.dueDate
+            binding.tvActualAvailable.text = dec.format(card.availableBalance).plus(" USD")
+            binding.tvActualCurrentBalance.text = dec.format(card.currentBalance).plus(" USD")
+            binding.tvActualMinPayment.text = dec.format(card.minPayment).plus(" USD")
+            binding.tvActualDueDate.text = card.dueDate
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
+        val binding = CardItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_item, parent, false)
-        return ViewPagerViewHolder(view)
+        return ViewPagerViewHolder(binding)
     }
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: ViewPagerViewHolder, position: Int) {
         holder.bind(cards[position])
+        with(holder) {
+            binding
+        }
     }
 
     override fun getItemCount(): Int {
