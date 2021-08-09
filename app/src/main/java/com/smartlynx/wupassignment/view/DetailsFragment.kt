@@ -1,33 +1,34 @@
 package com.smartlynx.wupassignment.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ProgressBar
-import android.widget.TextView
-import com.smartlynx.wupassignment.R
-import com.smartlynx.wupassignment.databinding.ActivityDetailsBinding
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import com.smartlynx.wupassignment.databinding.FragmentDetailsBinding
 import com.smartlynx.wupassignment.model.CardInfo
 import java.text.DecimalFormat
 
-class DetailsActivity : AppCompatActivity() {
+class DetailsFragment: Fragment() {
 
+    private lateinit var binding: FragmentDetailsBinding
     private lateinit var cardInfo: CardInfo
-    private lateinit var binding: ActivityDetailsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityDetailsBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentDetailsBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         getSerializableFromBundle()
         fillDetails(cardInfo)
         setProgressBarStatus(cardInfo)
     }
 
     private fun getSerializableFromBundle() {
-        val intent = this.intent
-        val bundle = intent.extras
-        cardInfo = bundle?.getSerializable("card") as CardInfo
+        cardInfo = arguments?.getSerializable("card") as CardInfo
     }
 
     private fun fillDetails(cardInfo: CardInfo) {

@@ -1,26 +1,23 @@
 package com.smartlynx.wupassignment.adapter
 
 import android.animation.ObjectAnimator
-import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.smartlynx.wupassignment.view.DetailsActivity
 import com.smartlynx.wupassignment.R
-import com.smartlynx.wupassignment.databinding.ActivityMainBinding
 import com.smartlynx.wupassignment.databinding.CardItemBinding
 import com.smartlynx.wupassignment.model.CardInfo
+import com.smartlynx.wupassignment.view.DetailsFragment
+import com.smartlynx.wupassignment.view.MainActivity
+import com.smartlynx.wupassignment.view.MainFragment
 import java.text.DecimalFormat
+
 
 class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolder>() {
 
@@ -63,11 +60,13 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
 
             // Set details click listener
             binding.details.setOnClickListener {
-                val intent = Intent(itemView.context, DetailsActivity::class.java)
+                val detailsFragment = DetailsFragment()
                 val bundle = Bundle()
+                (itemView.context as MainActivity).supportFragmentManager.beginTransaction().apply {
+                    replace(R.id.frameLayout, detailsFragment).commit()
+                }
                 bundle.putSerializable("card", card)
-                intent.putExtras(bundle)
-                itemView.context.startActivity(intent)
+                detailsFragment.arguments = bundle
             }
             val dec = DecimalFormat("#,###.##")
             binding.tvActualAvailable.text = dec.format(card.availableBalance).plus(" USD")
@@ -79,7 +78,6 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerViewHolder {
         val binding = CardItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_item, parent, false)
         return ViewPagerViewHolder(binding)
     }
 
