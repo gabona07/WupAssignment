@@ -5,7 +5,7 @@
         android:title="@string/cards"
         android:icon="@drawable/nav_cards"/>
     <item
-        android:id="@+id/Transactions"
+        android:id="@+id/transactions"
         android:title="@string/transactions"
         android:icon="@drawable/nav_trans"/>
     <item

@@ -20,6 +20,11 @@ class DetailsFragment: Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        setProgressBarStatus(cardInfo)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         getSerializableFromBundle()

@@ -30,8 +30,13 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
 
     inner class ViewPagerViewHolder(val binding: CardItemBinding): RecyclerView.ViewHolder(binding.root) {
 
+        lateinit var card: CardInfo
+
         @RequiresApi(Build.VERSION_CODES.N)
         fun bind(card: CardInfo) {
+
+            this.card = card
+
             // Load image into the image views
             val currentImage = card.cardImage
             val assets = itemView.context.assets
