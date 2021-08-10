@@ -68,7 +68,7 @@ class ViewPagerAdapter: RecyclerView.Adapter<ViewPagerAdapter.ViewPagerViewHolde
                 val detailsFragment = DetailsFragment()
                 val bundle = Bundle()
                 (itemView.context as MainActivity).supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.frameLayout, detailsFragment).commit()
+                    replace(R.id.frameLayout, detailsFragment).addToBackStack("tag").commit()
                 }
                 bundle.putSerializable("card", card)
                 detailsFragment.arguments = bundle

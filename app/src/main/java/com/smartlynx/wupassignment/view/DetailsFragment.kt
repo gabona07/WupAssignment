@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.smartlynx.wupassignment.R
 import com.smartlynx.wupassignment.databinding.FragmentDetailsBinding
 import com.smartlynx.wupassignment.model.CardInfo
 import java.text.DecimalFormat
